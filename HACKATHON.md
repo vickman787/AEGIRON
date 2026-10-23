@@ -16,7 +16,7 @@ There are no prescribed tracks. Agentic Commerce is a special award, not a manda
 
 ## Current implementation — 22 October 2026
 
-The integrated workspace uses OpenAI Responses for interpretation and review, deterministic server rules, persistent PostgreSQL on Vercel and session-scoped local SQLite, and PayPal sandbox AUTHORIZE with server-side provider verification. It supports generic products and payment instructions; the older browser-only /cases demo remains separate. The user previously completed an actual sandbox authorization. The latest completed automated run passed 36 unit tests and four live PostgreSQL integration tests, nine browser scenarios, TypeScript, ESLint and the production build. No public deployment or submission is claimed.
+The integrated workspace uses OpenAI Responses for interpretation and review, deterministic server rules, persistent PostgreSQL on Vercel and session-scoped local SQLite, and PayPal sandbox AUTHORIZE with server-side provider verification. It supports generic products and payment instructions; the older browser-only /cases demo remains separate. The user previously completed an actual sandbox authorization. The latest completed automated run passed 36 unit tests and four live PostgreSQL integration tests, nine browser scenarios, TypeScript, ESLint and the production build. Public source and a Vercel production deployment are now available; see RELEASE.md for domain status and the exact verification boundary. No Devpost submission is claimed.
 
 Both flows are limited to USD up to 500 and the configured sandbox merchant. There is no capture, settlement, bank transfer, product authenticity or beneficiary identity verification. Evidence is ordinary server storage, not immutable certification.
 
@@ -30,5 +30,6 @@ Prepared local drafts:
 - [Demo script](submission/DEMO-SCRIPT.md)
 - [Devpost copy and readiness checklist](submission/DEVPOST-DRAFT.md)
 
-Next: complete the new manual rehearsal, review the license and asset rights, prepare a clean public repository, record/upload the video, and review all submission fields. Registration, eligibility, public repository, license, video and final submission remain unconfirmed. Keep secrets, database records and private evidence out of public source.
+The keyboard rehearsal is complete, MIT application-code licensing is in place, and the clean public repository is published. Next: verify the hosted domain after DNS propagation, review asset rights and entrant eligibility, record/upload the video, and complete submission fields. Registration, eligibility, video and final submission remain unconfirmed. Keep secrets, database records and private evidence out of public source.
+
 

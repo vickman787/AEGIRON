@@ -1,6 +1,6 @@
 # AEGIRON — submission draft
 
-Status: local draft. No repository publication, video upload or Devpost submission is represented as complete.
+Status: submission copy remains a draft. The source is published and Vercel production is deployed; custom-domain DNS propagation was pending at release. Video upload and Devpost submission remain incomplete. See RELEASE.md.
 
 ## Tagline
 
@@ -41,11 +41,11 @@ Next.js; React; TypeScript; OpenAI Responses API; PayPal sandbox REST APIs; SQLi
 
 ## Links to fill after preparation
 
-- Public source repository: pending.
+- Public source repository: https://github.com/vickman787/AEGIRON.
 - License: MIT for application code; see THIRD_PARTY_NOTICES.md for assets and trademarks.
 - Publicly visible YouTube demo: pending.
 - Judge setup: README.md and public/SETUP.md in the final public repository.
-- Hosted demo: optional; no deployment is currently claimed.
+- Hosted demo: https://getaegiron.xyz (DNS propagation pending at release; private demo code required).
 
 ## Submission checklist
 
@@ -54,11 +54,12 @@ Next.js; React; TypeScript; OpenAI Responses API; PayPal sandbox REST APIs; SQLi
 - [ ] Review eligibility and register/join the event using the entrant's own details.
 - [x] Add the MIT application-code license and third-party notices.
 - [ ] Confirm rights and attribution for included source, Canva assets, fonts and branding.
-- [ ] Create/review a clean public repository containing all required source, assets and setup. Exclude .env.local, data, private logs, credentials and session evidence.
+- [x] Publish reviewed source, assets and setup to GitHub, excluding private environment files, runtime data, logs and session evidence.
 - [ ] Verify setup from a clean checkout with the documented Node version, example flow and separately configured integration credentials.
 - [ ] Upload the reviewed video to publicly visible YouTube.
 - [ ] Fill every required Devpost field and verify public links/access.
 - [ ] Review and submit before **12 November 2026, 21:00 WAT (20:00 UTC / noon PST)**.
 
 Source: [event overview](https://paypalaihackathon.devpost.com/) and [official rules](https://paypalaihackathon.devpost.com/rules), checked 22 October 2026. Official rules govern. The checklist does not establish personal eligibility or asset permissions.
+
 

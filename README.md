@@ -2,6 +2,8 @@
 
 AEGIRON checks proposed products and payment instructions against buyer-confirmed requirements, blocks mandatory mismatches, and requires buyer approval before PayPal sandbox authorization. Built for the [PayPal AI Hackathon](https://paypalaihackathon.devpost.com/); see [HACKATHON.md](HACKATHON.md).
 
+Release and deployment status: [RELEASE.md](RELEASE.md).
+
 ## Run locally
 
 Requires **Node.js 24.x** (tested with 24.15) and npm. Local SQLite development also needs a writable disk.
@@ -13,7 +15,7 @@ npm run dev
 
 Open **http://127.0.0.1:3000/** for the brand homepage from Canva page 1, then choose **Enter workspace** for the overview. The integrated workspace separates instruction, comparison, buyer approval and evidence into navigable screens. Header links show server-stored cases, rules and activity. Older `/cases` screens remain separate browser-only demonstrations.
 
-Fill in the ignored `.env.local` template: OPENAI_API_KEY, PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, and PAYPAL_MERCHANT_ID. Use only PayPal sandbox credentials and a separate sandbox buyer account. Restart the server after changing configuration. Never commit or share secrets. Full setup and walkthrough: [public/SETUP.md](public/SETUP.md), served at `/SETUP.md`.
+Copy `.env.example` to the ignored `.env.local` and fill in: OPENAI_API_KEY, PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, and PAYPAL_MERCHANT_ID. Use only PayPal sandbox credentials and a separate sandbox buyer account. Restart the server after changing configuration. Never commit or share secrets. Full setup and walkthrough: [public/SETUP.md](public/SETUP.md), served at `/SETUP.md`.
 
 The interpreter and reviewer use OpenAI Responses with validated structured output. OPENAI_MODEL defaults to gpt-4.1-mini. Configured means variables are present, not that provider access has been tested.
 
@@ -66,3 +68,4 @@ Browser tests use installed Microsoft Edge and start the dev server if necessary
 Design and verification notes are in `design/`. Generated QA images and original Canva exports stay local and are excluded from the public repository. The integrated UI uses the approved Canva composition: condensed headings, thin rules, instruction constraints, a comparison matrix, a blocked checkout and an authorization receipt. Option 06 uses the recovered 810×220 Canva logo, with the original background/platform assets and PayPal mark. CSS uses an available condensed system font as an adaptation. Manual screen-reader review remains outstanding.
 
 Original application code is MIT licensed; see [LICENSE](LICENSE) and [third-party notices](THIRD_PARTY_NOTICES.md).
+
