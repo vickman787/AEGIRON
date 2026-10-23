@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224 224">
+  <title>AEGIRON</title>
+  <rect width="224" height="224" rx="28" fill="#f7f6f1"/>
+  <defs>
+    <linearGradient id="green" x1="0" y1="1" x2="1" y2="0">
+      <stop stop-color="#203d32"/>
+      <stop offset="1" stop-color="#10271f"/>
+    </linearGradient>
+  </defs>
+  <path d="M24 60 124 12V61L71 86V119L92 151 24 184Z" fill="url(#green)"/>
+  <path d="m92 78 104-49v130L92 208Z" fill="#d8d4c8"/>
+  <path d="m71 119 75-36v42l-54 26Z" fill="#bd4628"/>
+  <path d="m71 119 21 10v22Z" fill="#9c3d25"/>
+</svg>

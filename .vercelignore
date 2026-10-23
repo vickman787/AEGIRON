@@ -1,0 +1,16 @@
+.git
+.env*
+data
+design/qa
+design/reference
+design/source-assets
+test-results
+playwright-report
+*.log
+*.sqlite*
+release-artifacts
+.agents
+.skills
+skills-lock.json
+AEGIRON_PROJECT.md
+design/canva-handoff.md

@@ -1,0 +1,33 @@
+import { chromium } from "@playwright/test";
+import AxeBuilder from "@axe-core/playwright";
+import { writeFile } from "node:fs/promises";
+const browser = await chromium.launch({channel:"msedge",headless:true});
+const context = await browser.newContext({viewport:{width:1440,height:1080}});
+const page = await context.newPage();
+const errors=[];
+page.on("pageerror",e=>errors.push(e.message));
+const results=[];
+for (const route of ["/","/cases","/rules","/activity","/cases/2405-117/instruction","/cases/NVME-512/comparison","/cases/2405-117/checkout","/cases/2405-117/evidence"]) {
+  await page.goto(`http://127.0.0.1:3000${route}`);
+  await page.locator("h1").waitFor();
+  const scan=await new AxeBuilder({page}).exclude("nextjs-portal").withTags(["wcag2a","wcag2aa","wcag21aa","wcag22aa"]).analyze();
+  results.push({route,violations:scan.violations.map(v=>({id:v.id,impact:v.impact,description:v.description,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))}))});
+}
+await page.goto("http://127.0.0.1:3000");
+await page.screenshot({path:"design/qa/overview-desktop.png",fullPage:true});
+await page.keyboard.press("Tab");
+const skipFocused=await page.getByRole("link",{name:"Skip to content"}).evaluate(e=>e===document.activeElement);
+await page.keyboard.press("Enter");
+const skipTarget=await page.locator("#main").evaluate(e=>e===document.activeElement);
+await page.setViewportSize({width:375,height:900});
+await page.locator("h1").click();
+await page.screenshot({path:"design/qa/overview-mobile.png",fullPage:true});
+await page.getByRole("button",{name:"Open navigation"}).click();
+await page.getByRole("link",{name:"Rules",exact:true}).click();
+await page.getByRole("heading",{name:"Clarity before checkout."}).waitFor();
+const mobileNavigation=await page.getByRole("button",{name:"Open navigation"}).isVisible();
+await page.setViewportSize({width:640,height:450});
+const zoomAdaptationNoOverflow=await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth);
+await writeFile("design/qa/accessibility.json",JSON.stringify({browser:"Microsoft Edge / Playwright",errors,keyboard:{skipFocused,skipTarget,mobileNavigation},zoomEquivalent:{cssViewport:"640x450 (1280x900 at 200% effective scale)",noOverflow:zoomAdaptationNoOverflow},results},null,2));
+console.log(JSON.stringify({errors,keyboard:{skipFocused,skipTarget,mobileNavigation},violations:results.map(r=>({route:r.route,count:r.violations.length,ids:r.violations.map(v=>v.id)}))},null,2));
+await browser.close();
